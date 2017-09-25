@@ -37,10 +37,19 @@ grad = zeros(size(theta));
 %
 
 
+X_times_theta=X * theta 
+hypothesis=sigmoid(X_times_theta)
 
 
+J=(-1/m)*(sum(y .*log(hypothesis)+(1-y).*log(1-hypothesis))) + lambda * sum(theta(2:end).^2) / (2*m);  %Regularized Cost Function
 
+grad(1)=(1/m) * sum ((hypothesis-y).* X(:,1));
 
+% i= 2 to n  since first parameter not regularized 
+
+for i=2:size(theta,1)
+grad(i)=(1/m) * sum( (hypothesis-y) .* X(:,i)) +  (lambda/m)*theta(i);
+end;
 
 
 
