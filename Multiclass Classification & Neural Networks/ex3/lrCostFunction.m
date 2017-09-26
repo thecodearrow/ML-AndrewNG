@@ -37,8 +37,8 @@ grad = zeros(size(theta));
 %
 
 
-X_times_theta=X * theta 
-hypothesis=sigmoid(X_times_theta)
+X_times_theta=X * theta; 
+hypothesis=sigmoid(X_times_theta);
 
 
 J=(-1/m)*(sum(y .*log(hypothesis)+(1-y).*log(1-hypothesis))) + lambda * sum(theta(2:end).^2) / (2*m);  %Regularized Cost Function

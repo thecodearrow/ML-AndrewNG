@@ -21,6 +21,16 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 
+X = [ones(m, 1) X]; % Add ones to the X data matrix
+
+hiddenlayer_units=sigmoid(X*Theta1'); %resultant matrix 
+
+hiddenlayer_units= [ones(m, 1) hiddenlayer_units]; % Add ones to the hiddenlayer_units matrix 
+
+hypothesis=sigmoid(hiddenlayer_units*Theta2');
+
+[hypothesis_max indices]=max(hypothesis,[],2);  %returns indices of max predicted probability (hypothesis) of class 
+p=indices;
 
 
 

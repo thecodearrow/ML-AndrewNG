@@ -30,6 +30,12 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
+X_times_theta=X * (all_theta'); %5000x401 * 401x10 ,resultant matrix 5000x10 matrix 
+hypothesis=sigmoid(X_times_theta); %matrix 500x10 with predictions for each class
+[hypothesis_max indices]=max(hypothesis,[],2);  %returns indices of max predicted probability (hypothesis) of class 
+p=indices;
+
+%Refer Octave Max Function docs if you still don't get it
 
 
 
